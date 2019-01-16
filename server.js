@@ -24,14 +24,15 @@ app.post("/submit", (req, res) => {
 
   var process = childProcess.spawn("py", [
     __dirname + "\\ml.py",
-    req.body.name,
-    req.body.comment
+    req.body.username
   ]);
   process.on("error", function(err) {
     throw err;
   });
   process.stdout.on("data", function(data) {
-    res.send(data.toString());
+    // res.send(data.toString());
+    / const res = { result: data.toString() };
+    res.render("results",res);
   });
 });
 
