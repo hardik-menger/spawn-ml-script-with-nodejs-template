@@ -31,8 +31,8 @@ app.post("/submit", (req, res) => {
   });
   process.stdout.on("data", function(data) {
     // res.send(data.toString());
-    / const res = { result: data.toString() };
-    res.render("results",res);
+    const res = { result: data.toString() };
+    res.render("results", res);
   });
 });
 
